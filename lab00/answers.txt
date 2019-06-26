@@ -1,3 +1,4 @@
+ls -l 			 //This command could show permissions of all files under current directory
 find -name [keyword]     //This command could find file with keyword through file hierarchy
 ps 		         //This command could show the running processes on local machine
 killall [process name]   //This command could terminate the process with its name
