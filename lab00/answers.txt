@@ -1,0 +1,4 @@
+find -name [keyword]     //This command could find file with keyword through file hierarchy
+ps 		         //This command could show the running processes on local machine
+killall [process name]   //This command could terminate the process with its name
+diff --normal [file_name1] [file_name2] //This command could show default difference between tow files 
