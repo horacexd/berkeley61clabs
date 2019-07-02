@@ -1,0 +1,16 @@
+1. Why is valgrind important and how it is useful?
+	it could check out the whether I use the uninitialized value. For example, there is no bound for array in C. Thus
+	valgrind could help me to find whether I use the uninitilized value
+2. How do you run a program in valgrind?
+	valgrind ./ext -v | less
+3. How do you interpret the error messages? Don¡¯t be afraid of them. Try your best and ask us for help.
+	
+4. Why might uninitialized variables may result in ¡°heisenbugs¡±?
+	Uninitialized variables are uncertain. Even thougth program doesn't crush, the result may be unexpected. 
+
+1. Why didn¡¯t the no_segfault_ex program segfault?
+	because there is a limitation in loop. However, in segfault_ex program, it is a infinite loop
+2. Why does the no_segfault_ex produce inconsistent outputs?
+	because sizeof(a) = 5 * sizeof(int) = 20, is not the number of elements in array
+3. Why is sizeof incorrect? How could you still use sizeof but make the code correct?
+	sizeof(a) means the size of total array a byte, means 4 * 5; I would like to use sizeof(a) / sizeof(a[0])
