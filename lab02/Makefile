@@ -73,7 +73,7 @@ d-memcheck: $(D_PROG)
 lab2_ex4_assembly: lab2_ex4_assembly.s
 	@echo "Checking Exercise 2..."
 	@echo "3 1 4 1 5 9\n6 1 8 1 10 1" > lab2_ex4_assembly_expected.txt
-	@java -jar ../../venus-jvm-latest.jar lab2_ex4_assembly.s > lab2_ex4_assembly_actual.txt
+	@java -jar ../venus-jvm-latest.jar lab2_ex4_assembly.s > lab2_ex4_assembly_actual.txt
 	@diff -w lab2_ex4_assembly_expected.txt lab2_ex4_assembly_actual.txt
 	@echo "Success!"
 
