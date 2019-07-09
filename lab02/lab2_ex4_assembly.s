@@ -30,6 +30,15 @@ loop:
 	lw t5, 0(t4)
 	beq t5, x0, exit
 	add t6, t2, t3
+    	addi s1, x0, 2 		# set value, 2
+    	rem s1, t0, s1 		# s2 = t0 % 2
+    	bne s1, x0, else 	# if s2 != 0, 
+then:	
+	slli t5, t5, 1		# t5 * 2    
+	j update
+else:				# else t5 = 1
+	addi t5, x0, 1
+update: 
 	sw t5, 0(t6)
 	addi t0, t0, 1
 	jal x0, loop
