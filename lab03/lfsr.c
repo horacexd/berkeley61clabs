@@ -8,13 +8,13 @@ void lfsr_calculate(uint16_t* reg) {
 }
 
 int main() {
-  int8_t* numbers = (int8_t*)malloc(sizeof(int8_t) * 65535);
+  int8_t* numbers = (int8_t*)malloc(sizeof(int8_t) * 65536);
   if (numbers == NULL) {
     printf("Memory allocation failed!");
     exit(1);
   }
 
-  memset(numbers, 0, sizeof(int8_t) * 65535);
+  memset(numbers, 0, sizeof(int8_t) * 65536);
   uint16_t reg   = 0x1;
   uint32_t count = 0;
   int i;
