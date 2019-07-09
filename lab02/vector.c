@@ -58,27 +58,28 @@ vector_t* vector_new() {
   vector_t* retval;
 
   /* First, we need to allocate memory on the heap for the struct */
-  retval = /* YOUR CODE HERE */;
+  retval = (vector_t*) malloc(sizeof(vector_t));
 
   /* Check our return value to make sure we got memory */
-  if (/* YOUR CODE HERE */) {
+  if (retval == NULL) {
     allocation_failed();
   }
 
   /* Now we need to initialize our data.
    *  Since retval->data should be able to dynamically grow,
    *  what do you need to do? */
-  retval->size = /* YOUR CODE HERE */;
-  retval->data = /* YOUR CODE HERE */;
+  retval->size = 1;
+  retval->data = (int*) malloc(retval->size * sizeof(int));
 
   /* Check the data attribute of our vector to make sure we got memory */
-  if (/* YOUR CODE HERE */) {
-    free(retval);           // Why is this line necessary?
+  if (retval -> data == NULL) {
+    free(retval);           // Why is this line necessary? 
     allocation_failed();
+    // in case of unsuccessful malloc data
   }
 
   /* Complete the initialization by setting the single component to zero */
-  /* YOUR CODE HERE */ = 0;
+  retval -> data[0] = 0;
 
   /* and return... */
   return retval;
@@ -96,8 +97,8 @@ int vector_get(vector_t* v, size_t loc) {
   /* If the requested location is higher than we have allocated, return 0.
    * Otherwise, return what is in the passed location.
    */
-  if (loc < /* YOUR CODE HERE */) {
-    return /* YOUR CODE HERE */;
+  if (loc < v -> size/* YOUR CODE HERE */) {
+    return /* YOUR CODE HERE */ (v -> data)[loc];
   } else {
     return 0;
   }
@@ -107,6 +108,8 @@ int vector_get(vector_t* v, size_t loc) {
  *  Remember, you need to free up ALL the memory that was allocated. */
 void vector_delete(vector_t* v) {
   /* YOUR SOLUTION HERE */
+  free(v -> data);
+  free(v);
 }
 
 /* Set a value in the vector. If the extra memory allocation fails, call
@@ -117,5 +120,22 @@ void vector_set(vector_t* v, size_t loc, int value) {
    */
 
   /* YOUR SOLUTION HERE */
+  if (loc >= (v -> size)) {
+    int* new = (int*) calloc(loc + 1, sizeof(int));
+    if (new == NULL) {
+      allocation_failed();
+    }
+    int* old = v -> data;
+    int i = 0;
+    for (; i < v -> size; i++) {
+	new[i] = old[i];	
+    }
+    v -> data = new;
+    v -> size = loc + 1;
+    v -> data[loc] = value;
+    free(old);
+  } else {
+    v -> data[loc] = value;
+  }  
 }
 

@@ -1,5 +1,5 @@
 1. How do you pass command line arguments to a program when using gdb?
-	run ext < input.txt
+	run ext < input.txt (stdin)  || set args <arguments> (set args)
 2. How do you set a breakpoint which only occurs when a set of conditions is true (e.g. when certain variables are a certain value)?
 	break ... if [expr]
 3. How do you execute the next line of C code in the program after stopping at a breakpoint?
