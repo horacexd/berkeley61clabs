@@ -29,3 +29,4 @@ list_map: list_map.s
 clean:
 	@rm -f factorial_expected.txt factorial_actual.txt
 	@rm -f list_map_expected.txt list_map_actual.txt
+	@rm lfsr bit_ops
