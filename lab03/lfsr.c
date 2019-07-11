@@ -5,6 +5,9 @@
 
 void lfsr_calculate(uint16_t* reg) {
   /* YOUR CODE HERE */
+  int n = *reg;
+  int bit = (n ^ (n >> 2) ^ (n >> 3) ^ (n >> 5));
+  *reg = (n >> 1) | (bit << 15);  
 }
 
 int main() {
